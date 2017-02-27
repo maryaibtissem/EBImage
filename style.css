@@ -1,0 +1,15 @@
+#ligneImg
+{
+    display: inline-flex;
+}
+
+#ligneImg img
+{
+    
+    margin:10px; 
+    width:225px;
+    height: 150px; 
+    border:1px solid grey; 
+    border-radius:5px; 
+    cursor:pointer;
+}
