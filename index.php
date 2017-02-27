@@ -7,6 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
+
 <section id="ligneImg">
 <?php  
 include('connexion.php'); 
@@ -20,14 +21,25 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
     echo '<input class="champCache" type="hidden" name="id" value='.$row1["id_orig"].'>';
     
     ?>                  
-    </article> 
+    </article> <br>
     <?php
     }    
 ?>
 </section> 
 
-<div id="resultat"></div>
 
+<section id="grandeBoite">
+<div id="resultat"></div>
+<article id="boiteForm">
+<form method="post" action="text.php">
+
+    <label for="haut">Texte du haut : </label> <input type="text" name="Votre texte" id="haut"><br>   
+    <label for="bas">Texte du bas : </label> <input type="text" name="Votre texte" id="bas">   
+    
+    
+</form>
+</article>
+</section>
 <script>
      $('.miniature').on('click',function() {
         var clicked = $(this);

@@ -13,3 +13,27 @@
     border-radius:5px; 
     cursor:pointer;
 }
+#resultat
+{
+
+    width: 50%;
+/*    border:1px solid grey; 
+    border-radius:5px; */
+    
+}
+
+
+
+#grandeBoite{
+    width: 100%;
+    display: flex;
+/*    border: 1px solid grey;
+     border-radius:5px; */
+
+}
+
+#boiteForm{
+     width:50%; 
+/*        border: 1px solid grey;*/
+      padding: 50px;
+}

@@ -12,34 +12,8 @@ include('connexion.php');
                 $nom=$row1["nom_img"];
        
             }
-$chemin= "image/".$nom;
-$check = getimagesize($source); 
 
-        $width = 600;
-        $height = 600;   
-    
-        $ratio_orig = $check[0]/$check[1];
-
-        if ($width/$height > $ratio_orig) 
-        {
-        $width = $height*$ratio_orig;
-        } 
-        else
-            {
-        $height = $width/$ratio_orig;
-            }
-         
-       
-        $image_p = imagecreatetruecolor ($width, $height);
-        $image = imagecreatefromjpeg  ($source);
-        
-        imagecopyresampled ($image_p, $image, 0, 0, 0, 0, $width, $height, $check[0], $check[1]);
-
-          
-//        $img_type = $_FILES['img']['type'];
-       
-        imagejpeg ($image_p, $chemin, 100);
- echo "<img src='$chemin' >";
+ echo "<img style='width:50%;' src='$source' >";
         
 
 
