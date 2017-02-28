@@ -52,8 +52,7 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
 
     <label for="haut">Texte du haut : </label> <input type="text" name="Votre texte" id="haut" value=""><br><br>   
     <label for="bas">Texte du bas : </label> <input type="text" name="Votre texte" id="bas" value=""><br><br>
-    <label for="couleurTexte">Couleur : </label> 
-    <input type="color" name="color" value="">
+    <label for="couleurTexte">Couleur : </label> <input type="color" id="couleurTexte" name="color" value="">
     
     <br>   <br><br>   <br>
     <a href="creation.php" class="boutonEnregistrer"> Enregistrer
@@ -88,7 +87,8 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
 
        $('#haut').on('keyup',function() {
         var text= document.getElementById('haut').value;
-        console.log(text);
+        
+        
         $.ajax({
                 type: "POST",
                 url: "image.php",
@@ -130,7 +130,20 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
      
      });    
         
-        
+    $('#couleurTexte').on('change',function() {   
+    var couleurTexte= document.getElementById('couleurTexte').value;
+        console.log(couleurTexte);
+        $.ajax({
+                type: "POST",
+                url: "couleur.php",
+                data: {'couleurTexte':couleurTexte},
+       success: function(msg)
+            {
+           
+            }
+            });
+    
+    });  
         
    
 
