@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>EBImage</title>
+     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
@@ -38,10 +39,9 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
 <article id="boiteForm">
 <form method="post" action="text.php">
 
-    <label for="haut">Texte du haut : </label> <input type="text" name="Votre texte" id="haut" value=""><br>   
-    <label for="bas">Texte du bas : </label> <input type="text" name="Votre texte" id="bas" value="">   
-    
-    
+    <label for="haut">Texte du haut : </label> <input type="text" name="Votre texte" id="haut" value=""><br><br>   
+    <label for="bas">Texte du bas : </label> <input type="text" name="Votre texte" id="bas" value=""><br>   <br><br>   <br>
+    <a href="creation.php" id="boutonEnregistrer"> Enregistrer </a>
 </form>
 </article>
 </section>

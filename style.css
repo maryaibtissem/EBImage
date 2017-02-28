@@ -57,6 +57,7 @@ position: absolute;
 position: absolute;
 left:0;
 z-index: 2;
+ font-family: 'Indie Flower', cursive;  
     
 }
 
@@ -69,4 +70,33 @@ z-index: 2;
     text-align: center;
     
     
+}
+
+label
+{
+    width: 150px;
+    display: block;
+    float: left;
+}
+
+#boutonEnregistrer{
+    text-decoration: none;
+    background-color: deeppink;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 10px;
+    color:black;
+    font-weight: bold;
+-moz-box-shadow: 3px 3px 5px 0px #656565;
+-webkit-box-shadow: 3px 3px 5px 0px #656565;
+-o-box-shadow: 3px 3px 5px 0px #656565;
+box-shadow: 3px 3px 5px 0px #656565;
+
+}
+
+#boutonEnregistrer:hover{
+    color: deeppink;
+    background-color: white;
+        font-weight: bold;
+
 }
