@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+session_start();
+//session_destroy();
+if(isset($_SESSION['chemin']))
+{
+    $chemin= $_SESSION['chemin'];
+}else
+{
+    $chemin="";
+}
+?>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -41,16 +52,21 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
 
     <label for="haut">Texte du haut : </label> <input type="text" name="Votre texte" id="haut" value=""><br><br>   
     <label for="bas">Texte du bas : </label> <input type="text" name="Votre texte" id="bas" value=""><br>   <br><br>   <br>
-    <a href="creation.php" id="boutonEnregistrer"> Enregistrer </a>
+    <a href="creation.php" class="boutonEnregistrer"> Enregistrer
+ </a>
+
+   <a href="<?php echo $chemin?>" download class="boutonEnregistrer"> Télécharger </a>
+    
 </form>
 </article>
 </section>
+
 <script>
-    
+
     $('.miniature').on('click',function() {
         var clicked = $(this);
-        var idimg = $(this).parent().find(".champCache").val(); 
-  
+        var idimg = $(this).parent().find(".champCache").val();
+
         $.ajax({
                 type: "POST",
                 url: "traitement.php",
@@ -59,45 +75,45 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
                     $('#resultat').empty();
                     $('#resultat').append(msg);
                 }
-            }); 
-         
-         
-         
-         
+            });
+
+
+
+
      });
-    
+
        $('#haut').on('keyup',function() {
-        var text= document.getElementById('haut').value; 
-        console.log(text);  
+        var text= document.getElementById('haut').value;
+        console.log(text);
         $.ajax({
                 type: "POST",
                 url: "image.php",
-                data: {'text':text},    
-         success: function(msg){   
+                data: {'text':text},
+         success: function(msg){
           $('#divHaut').empty();
-          $('#divHaut').append(msg);        
-           
-           
-            }
-            });
-     });      
-    
-    $('#bas').on('keyup',function() {
-        var textbas= document.getElementById('bas').value; 
-        console.log(textbas);  
-        $.ajax({
-                type: "POST",
-                url: "image.php",
-                data: {'textbas':textbas},    
-         success: function(msg){   
-          $('#divBas').empty();
-          $('#divBas').append(msg);        
-           
-           
+          $('#divHaut').append(msg);
+
+
             }
             });
      });
-    
+
+    $('#bas').on('keyup',function() {
+        var textbas= document.getElementById('bas').value;
+        console.log(textbas);
+        $.ajax({
+                type: "POST",
+                url: "image.php",
+                data: {'textbas':textbas},
+         success: function(msg){
+          $('#divBas').empty();
+          $('#divBas').append(msg);
+
+
+            }
+            });
+     });
+
 </script>   
 </body>
 </html
