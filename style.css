@@ -15,11 +15,12 @@
 }
 #resultat
 {
-
+    margin:auto;
     width: 50%;
-/*    border:1px solid grey; 
-    border-radius:5px; */
-    
+position: absolute;
+/*    border:1px solid grey; */
+/*    border-radius:5px; */
+       z-index: 1;
 }
 
 
@@ -32,8 +33,24 @@
 
 }
 
+#boiteImg{
+        position: relative;
+    width:50%;
+/*        border: 1px solid grey;*/
+
+}
+
 #boiteForm{
      width:50%; 
 /*        border: 1px solid grey;*/
       padding: 50px;
+}
+
+
+#divHaut
+{
+position: absolute;
+left:0;
+z-index: 2;
+    
 }

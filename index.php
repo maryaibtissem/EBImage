@@ -29,11 +29,14 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
 
 
 <section id="grandeBoite">
-<div id="resultat"></div>
+<article id="boiteImg">
+    <div id="resultat"></div>
+    <div id="divHaut"></div>    
+</article>
 <article id="boiteForm">
 <form method="post" action="text.php">
 
-    <label for="haut">Texte du haut : </label> <input type="text" name="Votre texte" id="haut"><br>   
+    <label for="haut">Texte du haut : </label> <input type="text" name="Votre texte" id="haut" value=""><br>   
     <label for="bas">Texte du bas : </label> <input type="text" name="Votre texte" id="bas">   
     
     
@@ -41,10 +44,11 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
 </article>
 </section>
 <script>
-     $('.miniature').on('click',function() {
+    
+    $('.miniature').on('click',function() {
         var clicked = $(this);
         var idimg = $(this).parent().find(".champCache").val(); 
-         
+  
         $.ajax({
                 type: "POST",
                 url: "traitement.php",
@@ -60,8 +64,21 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
          
      });
     
-    
-    
+       $('#haut').on('keyup',function() {
+        var text= document.getElementById('haut').value; 
+        console.log(text);  
+        $.ajax({
+                type: "POST",
+                url: "image.php",
+                data: {'text':text},    
+         success: function(msg){   
+          $('#divHaut').empty();
+          $('#divHaut').append(msg);        
+           
+           
+            }
+            });
+     });
     
 </script>   
 </body>
