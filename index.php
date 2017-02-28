@@ -51,11 +51,15 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
 <form method="post" action="text.php">
 
     <label for="haut">Texte du haut : </label> <input type="text" name="Votre texte" id="haut" value=""><br><br>   
-    <label for="bas">Texte du bas : </label> <input type="text" name="Votre texte" id="bas" value=""><br>   <br><br>   <br>
+    <label for="bas">Texte du bas : </label> <input type="text" name="Votre texte" id="bas" value=""><br><br>
+    <label for="couleurTexte">Couleur : </label> 
+    <input type="color" name="color" value="">
+    
+    <br>   <br><br>   <br>
     <a href="creation.php" class="boutonEnregistrer"> Enregistrer
- </a>
+ </a> &nbsp;
 
-   <a href="<?php echo $chemin?>" download class="boutonEnregistrer"> Télécharger </a>
+   <a href="<?php echo $chemin?>" download class="boutonEnregistrer" id="bouton"> Télécharger </a>
     
 </form>
 </article>
@@ -113,6 +117,22 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
             }
             });
      });
+    
+    $('#bouton').on('click',function() {
+        
+     $.ajax({
+                type: "POST",
+                url: "close.php",
+     
+            });
+     
+     
+     
+     });    
+        
+        
+        
+   
 
 </script>   
 </body>

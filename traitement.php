@@ -14,20 +14,7 @@ include('connexion.php');
                 $_SESSION['nom']=  $nom;
             }
 
-
-$chemin= "image/".$nom;
-$check = getimagesize($source); 
-
-        $width = 500;
-        $height = 500;   
-    
-        $image_p = imagecreatetruecolor ($width, $height);
-        $image = imagecreatefromjpeg  ($source);
-        
-        imagecopyresampled ($image_p, $image, 0, 0, 0, 0, $width, $height, $check[0], $check[1]);
-        imagejpeg ($image_p, $chemin, 100);
-
- echo "<img  src='$chemin' >";
+ echo "<img style='width:500px; height:500px;'  src='$source' >";
 
 
 
