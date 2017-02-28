@@ -37,6 +37,7 @@ $check = getimagesize($source);
         $image = imagecreatefromjpeg  ($source);
         
         imagecopyresampled ($image_p, $image, 0, 0, 0, 0, $width, $height, $check[0], $check[1]);
+        imagejpeg ($image_p, $chemin, 100);
 
 //if(isset($_POST['text']))
 //{
