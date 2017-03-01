@@ -14,6 +14,8 @@ include('connexion.php');
                 $_SESSION['nom']=  $nom;
             }
 
+
+
  echo "<img style='width:500px; height:500px;'  src='$source' >";
 
 

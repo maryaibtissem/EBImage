@@ -2,13 +2,7 @@
 <?php
 session_start();
 //session_destroy();
-if(isset($_SESSION['chemin']))
-{
-    $chemin= $_SESSION['chemin'];
-}else
-{
-    $chemin="";
-}
+
 ?>
 <html lang="fr">
 <head>
@@ -17,7 +11,7 @@ if(isset($_SESSION['chemin']))
      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-</head>
+    </head>
 <body>
 
 <section id="ligneImg">
@@ -33,9 +27,20 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
     echo '<input class="champCache" type="hidden" name="id" value='.$row1["id_orig"].'>';
     
     ?>                  
-    </article> <br>
+    </article>
     <?php
-    }    
+    } 
+    
+    if(isset($_SESSION['lastIdtele'] ))
+    { 
+    ?>
+     <article class="parentMini"><?php    
+      echo '<img class="miniaturetele" src='.$_SESSION['cheminTele'].'>'; 
+    echo '<input class="champCache" type="hidden" name="id" value='.$_SESSION['lastIdtele'].'>';  
+     ?>                  
+    </article> <br>
+    <?php    
+    }
 ?>
 </section> 
 
@@ -56,12 +61,19 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
     
     <br>   <br><br>   <br>
     <a href="creation.php" class="boutonEnregistrer"> Enregistrer
- </a> &nbsp;
-
-   <a href="<?php echo $chemin?>" download class="boutonEnregistrer" id="bouton"> Télécharger </a>
-    
+ </a> &nbsp;  
 </form>
 </article>
+<article id="boiteform2">
+ 
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+    Select image to upload:
+    <input type="file" name="img" size=50 >
+    <input type="submit" value="Upload Image" name="submit">
+</form>
+    
+</article>
+
 </section>
 
 <script>
@@ -84,6 +96,26 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
 
 
      });
+    
+     $('.miniaturetele').on('click',function() {
+        var clicked = $(this);
+        var idimg = $(this).parent().find(".champCache").val();
+
+        $.ajax({
+                type: "POST",
+                url: "traitement2.php",
+                data: {'idimg': idimg}, // je passe la variable JS
+                success: function(msg){ // je récupère la réponse dans la variable msg
+                    $('#resultat').empty();
+                    $('#resultat').append(msg);
+                }
+            });
+
+
+
+
+     });
+
 
        $('#haut').on('keyup',function() {
         var text= document.getElementById('haut').value;
@@ -118,17 +150,7 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
             });
      });
     
-    $('#bouton').on('click',function() {
-        
-     $.ajax({
-                type: "POST",
-                url: "close.php",
-     
-            });
-     
-     
-     
-     });    
+    
         
     $('#couleurTexte').on('change',function() {   
     var couleurTexte= document.getElementById('couleurTexte').value;
