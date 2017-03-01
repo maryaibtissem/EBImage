@@ -1,8 +1,21 @@
 body
 {
     background-color: black;
+    margin: 0;
+    padding: 0;
 }
+header
+{
 
+    height: 100px;
+    background-color: deeppink;
+    top:0;
+}
+header img
+{
+    height: 80px;
+    padding: 10px;
+}
 #ligneImg
 {
     display: inline-flex;
@@ -56,10 +69,18 @@ position: absolute;
       padding: 50px;
 }
 
-#boiteForm2{
-     width:50%; 
-/*        border: 1px solid grey;*/
-      padding: 50px;
+#boiteform2{
+      padding: 10px;
+}
+
+#boiteform2 form{
+
+         width:225px; 
+    height: 140px;
+        border: 1px solid grey;
+
+    background-color: white;
+    border-radius: 10px;
 }
 
 

@@ -9,10 +9,14 @@ session_start();
     <meta charset="UTF-8">
     <title>EBImage</title>
      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     </head>
 <body>
+<header>
+<img src="logo.png" alt="">
+</header>
 
 <section id="ligneImg">
 <?php  
@@ -42,6 +46,16 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
     <?php    
     }
 ?>
+
+<article id="boiteform2">
+ 
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="img" size=50><br>
+    <input type="submit" value="Envoyer" name="submit">
+</form>
+    
+</article>
+
 </section> 
 
 
@@ -64,15 +78,7 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
  </a> &nbsp;  
 </form>
 </article>
-<article id="boiteform2">
- 
-  <form action="upload.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="img" size=50 >
-    <input type="submit" value="Upload Image" name="submit">
-</form>
-    
-</article>
+
 
 </section>
 
