@@ -15,7 +15,9 @@ session_start();
     </head>
 <body>
 <header>
+<div id="logo">
 <img src="logo.png" alt="">
+</div>
 </header>
 
 <section id="ligneImg">
@@ -176,6 +178,7 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
    
 
 </script>   
+<footer></footer>
 </body>
 </html
     

@@ -84,7 +84,7 @@ if($extension=='jpg' || $extension=='jpeg' )
         }
 else if($extension=='png' )
         {    
-            imagepng ($image_p, $chemin, 100);
+            imagepng ($image_p, $chemin);
             $req1 = $connexion->prepare('INSERT INTO img_generee (chemin_gen,text,url) VALUES (?,?,?)');
             $req1->execute(array('NULL','NULL','NULL'));   
             $_SESSION['lastId']=$connexion->lastInsertId(); 
