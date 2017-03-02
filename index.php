@@ -178,7 +178,7 @@ $req1= $connexion->query("SELECT * FROM img_originale  ");
    
 
 </script>   
-<footer></footer>
+<!--<footer></footer>-->
 </body>
 </html
     
