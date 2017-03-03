@@ -37,6 +37,9 @@
      });
 
 
+
+
+
        $('#haut').on('keyup',function() {
         var text= document.getElementById('haut').value;
         

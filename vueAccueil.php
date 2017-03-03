@@ -3,8 +3,8 @@
  require 'header.php'; 
 
 ?>
-
-<section id="ligneImg">
+<div class="cadre">
+<section class="ligneImg">
 
    <?php  while($row1 = $imgs->fetch()) 
     {?>
@@ -31,15 +31,6 @@
     }
 ?>
 
-<article id="boiteform2">
- 
-  <form action="upload.php" method="post" enctype="multipart/form-data">
-    <input type="file" name="img" size=50><br>
-    <input type="submit" value="Envoyer" name="submit">
-</form>
-    
-</article>
-
 </section> 
 
 
@@ -51,6 +42,15 @@
     
 </article>
 <article id="boiteForm">
+<article id="boiteform2">
+ <h3>Ajouter une image : </h3>
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="img" size=50><br><br>
+    <input type="submit" value="Envoyer" name="submit"><br><br>
+</form>
+    
+</article>
+ <h3>Écrivez votre texte : </h3>
 <form method="post" action="text.php">
 
     <label for="haut">Texte du haut : </label> <input type="text" name="Votre texte" id="haut" value=""><br><br>   
@@ -65,9 +65,34 @@
 
 
 </section>
+</div>
 
+<div class="cadre">
+ 
+       <div class="container">
+        <section class="row">
+        <h1>LES DERNIERS MÈMES CRÉÉS</h1>
+        <section id="groupe">
+            <?php 
+   
+            while($row2 = $imgsTele->fetch()) 
+       
+                {
+                ?>
+                <article class="ligneImg2 col-lg-4 "><?php
+	           echo '<img  src='.$row2["chemin_gen"].'>'; 
+                echo '</article>';
+                }?>
+                
+        </section>      
+        </section>
+    </div>
+    
+</div>
+
+<footer><p>EBImage, tous droits réservés | <a href="mailto:esteban.d@codeur.online">esteban.d@codeur.online </a></p></footer>
 <script src="script.js">  </script> 
-<!--<footer></footer>-->
+
 </body>
 </html
     
